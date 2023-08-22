@@ -333,7 +333,6 @@ class _ColorPickerState extends State<ColorPicker> {
                   if (widget.enableLightness) SizedBox(height: 40.0, width: 260.0, child: colorPickerSlider(TrackType.lightness)),
                 ],
               ),
-              const SizedBox(height: 20.0),
               if (widget.showLabel && widget.labelTypes.isNotEmpty)
                 FittedBox(
                   child: ColorPickerLabel(
