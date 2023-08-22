@@ -243,8 +243,11 @@ class ColorPickerSlider extends StatelessWidget {
 
     switch (trackType) {
       case TrackType.hue:
-        // onColorChanged(hsvColor.withSaturation(progress * 360));
-        onColorChanged(hsvColor.withHue(progress * 359).withSaturation(hsvColor.saturation <= 0 ? 1 : hsvColor.saturation));
+        if (hsvColor.saturation <= 0) {
+          onColorChanged(hslToHsv(hsvToHsl(hsvColor.withSaturation(1)).withLightness(0.99)));
+        } else {
+          onColorChanged(hsvColor.withHue(progress * 359));
+        }
         break;
       case TrackType.lightness:
         onColorChanged(hslToHsv(hsvToHsl(hsvColor).withLightness(progress)));
