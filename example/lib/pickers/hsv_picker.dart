@@ -50,8 +50,7 @@ class _HSVColorPickerExampleState extends State<HSVColorPickerExample> {
   bool _showIndicator = true;
 
   // Picker 4
-  final textController =
-      TextEditingController(text: '#2F19DB'); // The initial value can be provided directly to the controller.
+  final textController = TextEditingController(text: '#2F19DB'); // The initial value can be provided directly to the controller.
   bool _enableAlpha4 = true;
 
   @override
@@ -83,7 +82,7 @@ class _HSVColorPickerExampleState extends State<HSVColorPickerExample> {
                           onColorChanged: widget.onColorChanged,
                           colorPickerWidth: 300,
                           pickerAreaHeightPercent: 0.7,
-                          enableAlpha: _enableAlpha,
+                          enableLightness: _enableAlpha,
                           labelTypes: _labelTypes,
                           displayThumbColor: _displayThumbColor,
                           paletteType: _paletteType,
@@ -92,8 +91,6 @@ class _HSVColorPickerExampleState extends State<HSVColorPickerExample> {
                             topRight: Radius.circular(2),
                           ),
                           hexInputBar: _displayHexInputBar,
-                          colorHistory: widget.colorHistory,
-                          onHistoryChanged: widget.onHistoryChanged,
                         ),
                       ),
                     );
@@ -105,7 +102,7 @@ class _HSVColorPickerExampleState extends State<HSVColorPickerExample> {
                 style: TextStyle(color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -146,7 +143,7 @@ ColorPicker(
               },
               child: Icon(Icons.code, color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -269,7 +266,7 @@ ColorPicker(
                 style: TextStyle(color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -299,7 +296,7 @@ HueRingPicker(
               },
               child: Icon(Icons.code, color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -352,7 +349,7 @@ HueRingPicker(
                 style: TextStyle(color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -386,7 +383,7 @@ SlidePicker(
               },
               child: Icon(Icons.code, color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -456,7 +453,7 @@ SlidePicker(
                             onColorChanged: widget.onColorChanged,
                             colorPickerWidth: 300,
                             pickerAreaHeightPercent: 0.7,
-                            enableAlpha: _enableAlpha4, // hexInputController will respect it too.
+                            enableLightness: _enableAlpha4, // hexInputController will respect it too.
                             displayThumbColor: true,
                             paletteType: PaletteType.hsvWithHue,
                             labelTypes: const [],
@@ -510,7 +507,7 @@ SlidePicker(
                 style: TextStyle(color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               ),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),
@@ -571,7 +568,7 @@ Column(
               },
               child: Icon(Icons.code, color: useWhiteForeground(widget.pickerColor) ? Colors.white : Colors.black),
               style: ElevatedButton.styleFrom(
-                primary: widget.pickerColor,
+                backgroundColor: widget.pickerColor,
                 shadowColor: widget.pickerColor.withOpacity(1),
                 elevation: 10,
               ),

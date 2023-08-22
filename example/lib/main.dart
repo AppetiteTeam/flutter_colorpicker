@@ -25,54 +25,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final foregroundColor = useWhiteForeground(currentColor) ? Colors.white : Colors.black;
-    return AnimatedTheme(
-      data: lightTheme ? ThemeData.light() : ThemeData.dark(),
-      child: Builder(builder: (context) {
-        return DefaultTabController(
-          length: 3,
-          child: Scaffold(
-            floatingActionButton: FloatingActionButton.extended(
-              onPressed: () => setState(() => lightTheme = !lightTheme),
-              icon: Icon(lightTheme ? Icons.dark_mode_rounded : Icons.light_mode_rounded),
-              label: Text(lightTheme ? 'Night' : '  Day '),
-              backgroundColor: currentColor,
-              foregroundColor: foregroundColor,
-              elevation: 15,
-            ),
-            appBar: AppBar(
-              title: const Text('Flutter Color Picker Example'),
-              backgroundColor: currentColor,
-              foregroundColor: foregroundColor,
-              bottom: TabBar(
-                labelColor: foregroundColor,
-                tabs: const <Widget>[
-                  Tab(text: 'HSV/HSL/RGB'),
-                  Tab(text: 'Material'),
-                  Tab(text: 'Blocky'),
-                ],
-              ),
-            ),
-            body: TabBarView(
-              children: <Widget>[
-                HSVColorPickerExample(
-                  pickerColor: currentColor,
-                  onColorChanged: changeColor,
-                  colorHistory: colorHistory,
-                  onHistoryChanged: (List<Color> colors) => colorHistory = colors,
-                ),
-                MaterialColorPickerExample(pickerColor: currentColor, onColorChanged: changeColor),
-                BlockColorPickerExample(
-                  pickerColor: currentColor,
-                  onColorChanged: changeColor,
-                  pickerColors: currentColors,
-                  onColorsChanged: changeColors,
-                  colorHistory: colorHistory,
-                ),
-              ],
-            ),
-          ),
-        );
-      }),
+    return Scaffold(
+      body: Center(
+        child: ColorPicker(
+          header: const Text('Hello'),
+          footer: const Text('Footer'),
+          pickerColor: Colors.indigo,
+          onColorChanged: (value) {},
+          colorPickerWidth: 160.0,
+          enableLightness: true,
+          displayThumbColor: true,
+          paletteType: PaletteType.hsvWithHue,
+          labelTypes: const [],
+        ),
+      ),
     );
   }
 }
