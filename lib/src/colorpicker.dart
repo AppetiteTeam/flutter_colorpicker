@@ -39,10 +39,10 @@ class ColorPicker extends StatelessWidget {
   }
 
   Widget colorPicker() {
-    return ClipRRect(
-      borderRadius: pickerAreaBorderRadius,
-      child: Padding(
-        padding: const EdgeInsets.all(10),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ClipRRect(
+        borderRadius: pickerAreaBorderRadius,
         child: ColorPickerArea(HSVColor.fromColor(pickerColor), onColorChanging),
       ),
     );

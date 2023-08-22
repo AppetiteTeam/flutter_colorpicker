@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
           },
           colorPickerWidth: 160.0,
           displayThumbColor: true,
+          pickerAreaBorderRadius: BorderRadius.circular(10.0),
         ),
       ),
     );
