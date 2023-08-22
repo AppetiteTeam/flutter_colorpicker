@@ -323,38 +323,21 @@ class _ColorPickerState extends State<ColorPicker> {
             height: widget.colorPickerWidth * widget.pickerAreaHeightPercent,
             child: colorPicker(),
           ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              if (widget.header != null) widget.header!,
-              Column(
-                children: <Widget>[
-                  SizedBox(height: 40.0, width: 260.0, child: sliderByPaletteType()),
-                  if (widget.enableLightness) SizedBox(height: 40.0, width: 260.0, child: colorPickerSlider(TrackType.lightness)),
-                ],
-              ),
-              if (widget.showLabel && widget.labelTypes.isNotEmpty)
-                FittedBox(
-                  child: ColorPickerLabel(
-                    currentHsvColor,
-                    enableAlpha: widget.enableLightness,
-                    textStyle: widget.labelTextStyle,
-                    colorLabelTypes: widget.labelTypes,
-                  ),
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                if (widget.header != null) widget.header!,
+                Column(
+                  children: <Widget>[
+                    SizedBox(height: 30.0, child: sliderByPaletteType()),
+                    if (widget.enableLightness) SizedBox(height: 30.0, child: colorPickerSlider(TrackType.lightness)),
+                  ],
                 ),
-              if (widget.hexInputBar)
-                ColorPickerInput(
-                  currentHsvColor.toColor(),
-                  (Color color) {
-                    setState(() => currentHsvColor = HSVColor.fromColor(color));
-                    widget.onColorChanged(currentHsvColor.toColor());
-                    if (widget.onHsvColorChanged != null) widget.onHsvColorChanged!(currentHsvColor);
-                  },
-                  enableAlpha: widget.enableLightness,
-                  embeddedText: false,
-                ),
-              if (widget.footer != null) widget.footer!,
-            ],
+                if (widget.footer != null) widget.footer!,
+              ],
+            ),
           ),
         ],
       );

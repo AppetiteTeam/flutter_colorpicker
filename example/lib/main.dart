@@ -28,7 +28,13 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       body: Center(
         child: ColorPicker(
-          header: const Text('Hello'),
+          header: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('Hello'),
+              Text('GG'),
+            ],
+          ),
           footer: const Text('Footer'),
           pickerColor: Colors.indigo,
           onColorChanged: (value) {},
