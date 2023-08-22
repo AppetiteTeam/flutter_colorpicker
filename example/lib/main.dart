@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import './pickers/hsv_picker.dart';
-import './pickers/material_picker.dart';
-import './pickers/block_picker.dart';
 
 void main() => runApp(const MaterialApp(home: MyApp()));
 
@@ -14,17 +11,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool lightTheme = true;
-  Color currentColor = Colors.amber;
-  List<Color> currentColors = [Colors.yellow, Colors.green];
-  List<Color> colorHistory = [];
-
-  void changeColor(Color color) => setState(() => currentColor = color);
-  void changeColors(List<Color> colors) => setState(() => currentColors = colors);
+  Color currentColor = const Color(0xFFF5F5F5);
 
   @override
   Widget build(BuildContext context) {
-    final foregroundColor = useWhiteForeground(currentColor) ? Colors.white : Colors.black;
     return Scaffold(
       body: Center(
         child: ColorPicker(
@@ -36,13 +26,13 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
           footer: const Text('Footer'),
-          pickerColor: Colors.indigo,
-          onColorChanged: (value) {},
+          pickerColor: currentColor,
+          onColorChanged: (value) {
+            currentColor = value;
+            setState(() {});
+          },
           colorPickerWidth: 160.0,
-          enableLightness: true,
           displayThumbColor: true,
-          paletteType: PaletteType.hsvWithHue,
-          labelTypes: const [],
         ),
       ),
     );
